@@ -13,6 +13,7 @@
 
   --color-faint-formatting: #666;
   --color-faint-formatting-alt: #999;
+  --color-dracula-comment-lighter: #7282b4;
 }
 
 .theme-dark,
@@ -21,6 +22,16 @@
   --background-primary-alt: var(--color-dracula-selection);
   --background-secondary: var(--color-dracula-selection);
   --background-secondary-alt: var(--color-dracula-background);
+
+  /* Dropdown border and section dividers in the settings */
+  --background-modifier-border: #666;
+
+  /* Button background */
+  --interactive-accent: var(--color-dracula-comment);
+  --interactive-accent-hover: var(--color-dracula-comment-lighter);
+
+  /* Button text */
+  --text-on-accent: var(--color-dracula-foreground);
 }
 
 /*
