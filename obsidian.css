@@ -25,6 +25,45 @@
 
 /*
  **************************************
+ * Workspace (outside of the editor)
+*/
+
+.workspace-split.mod-left-split .workspace-tabs .workspace-leaf {
+  /* don't let the left sidebar's top right corner touch the editor */
+  border-top-right-radius: 6px;
+}
+.workspace-split.mod-right-split .workspace-tabs .workspace-leaf {
+  /* don't let the right sidebar's top right corner touch the editor */
+  border-top-left-radius: 6px;
+}
+
+.workspace-split.mod-right-split .workspace-tabs {
+  /* don't let the right sidebar overlap its resize handle */
+  padding-left: 4px;
+}
+.workspace-leaf-resize-handle {
+  /* less noise if we don't see them until they are hovered */
+  background-color: transparent;
+}
+
+.nav-files-container {
+  /* don't let the selected filename touch the left nav pane */
+  padding-left: 4px;
+}
+
+/*
+ **************************************
+ * Editor/Preview: general layout
+*/
+
+.markdown-preview-view {
+  /* align Preview with Editor */
+  padding-left: 25px; /* 30px -> 25px */
+  padding-right: 35px; /* 30px -> 35px */
+}
+
+/*
+ **************************************
  * Headings
  * - Sizes from 1.25em to 2em with 0.15em interval
  * - Same look in Editor and Preview (except for ###)
