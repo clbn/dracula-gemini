@@ -12,6 +12,7 @@
   --color-dracula-yellow: #f1fa8c;
 
   --color-faint-formatting: #666;
+  --color-faint-formatting-alt: #999;
 }
 
 .theme-dark,
@@ -180,4 +181,73 @@
 .cm-s-obsidian .cm-formatting-em {
   font-size: 0.7em;
   vertical-align: text-top;
+}
+
+/*
+ **************************************
+ * Inline code
+*/
+
+.cm-s-obsidian span.cm-inline-code {
+  color: var(--color-dracula-green);
+  font-size: 1em;
+
+  /* to conceal "internal" border-radius'es, make the content (code) and the formatting (backticks) overlap */
+  margin: 0 -0.125em; /* -2px */
+  padding: 0.125em 0 0.1875em 0; /* 2px 0 3px 0 */
+
+  /* to render code content over the overlapping formatting-end */
+  position: relative;
+  z-index: 2;
+}
+
+.cm-s-obsidian span.cm-inline-code.cm-formatting-code {
+  color: var(--color-faint-formatting-alt);
+  border-radius: 0.1875em; /* 3px */
+
+  z-index: 1;
+  margin: 0;
+}
+
+.markdown-preview-view code {
+  color: var(--color-dracula-green);
+  font-size: 1em;
+  padding: 0.125em 0.25em 0.1875em 0.25em; /* 2px 4px 3px 4px */
+  border-radius: 0.1875em; /* 3px */
+}
+
+/*
+ **************************************
+ * Block code
+*/
+
+.cm-s-obsidian .HyperMD-codeblock,
+.cm-s-obsidian span.cm-hmd-indented-code {
+  color: var(--color-dracula-orange);
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.cm-s-obsidian .HyperMD-codeblock-begin,
+.cm-s-obsidian .HyperMD-codeblock-end {
+  color: var(--color-faint-formatting-alt);
+
+  /* make backticks small */
+  font-size: 0.7em;
+  line-height: 1.2;
+
+  /* and move them down */
+  position: relative;
+  top: 0.4em;
+}
+
+.markdown-preview-view pre {
+  font-size: 1em;
+  line-height: 1.4;
+  padding: 0.6875em 1em; /* 11px - to match Editor's top and bottom backtick rows */
+  margin: 0 0 1.5em 0; /* like paragraphs */
+}
+
+.markdown-preview-view pre code {
+  color: var(--color-dracula-orange);
 }
