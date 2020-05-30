@@ -1,0 +1,183 @@
+:root {
+  --color-dracula-background: #282a36;
+  --color-dracula-selection: #44475a; /* a.k.a. "Current line" */
+  --color-dracula-foreground: #f8f8f2;
+  --color-dracula-comment: #6272a4;
+  --color-dracula-cyan: #8be9fd;
+  --color-dracula-green: #50fa7b;
+  --color-dracula-orange: #ffb86c;
+  --color-dracula-pink: #ff79c6;
+  --color-dracula-purple: #bd93f9;
+  --color-dracula-red: #ff5555;
+  --color-dracula-yellow: #f1fa8c;
+
+  --color-faint-formatting: #666;
+}
+
+.theme-dark,
+.theme-light {
+  --background-primary: var(--color-dracula-background);
+  --background-primary-alt: var(--color-dracula-selection);
+  --background-secondary: var(--color-dracula-selection);
+  --background-secondary-alt: var(--color-dracula-background);
+}
+
+/*
+ **************************************
+ * Headings
+ * - Sizes from 1.25em to 2em with 0.15em interval
+ * - Same look in Editor and Preview (except for ###)
+ * - Formatting (###) is header's font-size * 0.6
+*/
+
+.cm-s-obsidian .HyperMD-header,
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  color: var(--color-dracula-purple);
+  font-weight: 600;
+  line-height: 1.3 !important;
+  padding: 0.2em 0 0.3em 0;
+  margin: 0;
+}
+
+.cm-s-obsidian .HyperMD-header-1,
+.markdown-preview-view h1 {
+  font-size: 2em;
+  padding-top: 0; /* h1 is special like this */
+}
+.cm-s-obsidian .HyperMD-header-2,
+.markdown-preview-view h2 {
+  font-size: 1.85em;
+}
+.cm-s-obsidian .HyperMD-header-3,
+.markdown-preview-view h3 {
+  font-size: 1.7em;
+}
+.cm-s-obsidian .HyperMD-header-4,
+.markdown-preview-view h4 {
+  font-size: 1.55em;
+}
+.cm-s-obsidian .HyperMD-header-5,
+.markdown-preview-view h5 {
+  font-size: 1.4em;
+}
+.cm-s-obsidian .HyperMD-header-6,
+.markdown-preview-view h6 {
+  font-size: 1.25em;
+}
+
+.cm-s-obsidian .HyperMD-header .cm-header {
+  /* inherit from its parent, .HyperMD-header, defined above */
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.cm-s-obsidian .HyperMD-header .cm-formatting-header {
+  font-size: 0.6em;
+}
+
+/*
+ **************************************
+ * Paragraphs & lists
+*/
+
+.markdown-preview-view p {
+  /* to align it with Editor, make padding-bottom match the height of one row */
+  padding: 0 0 1.5em 0;
+  margin: 0;
+}
+
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  /* like paragraphs, plus left padding */
+  padding: 0 0 1.5em 2em;
+  margin: 0;
+}
+
+.markdown-preview-view ul ul,
+.markdown-preview-view ul ol,
+.markdown-preview-view ol ul,
+.markdown-preview-view ol ol {
+  /* nested lists don't need vertical padding */
+  padding: 0 0 0 2em;
+}
+
+.markdown-preview-view li {
+  /* matching top padding with the Editor's line container */
+  padding-top: 0.3em;
+}
+
+.markdown-preview-view li p {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+ **************************************
+ * Block quotes
+*/
+
+.cm-s-obsidian .HyperMD-quote {
+  padding-left: 3em !important;
+}
+
+.cm-s-obsidian .HyperMD-quote .cm-quote {
+  color: var(--color-dracula-yellow);
+  font-style: italic;
+}
+
+.cm-s-obsidian .HyperMD-quote .cm-formatting-quote {
+  /* make '>' dimmed, but not invisible */
+  color: var(--color-faint-formatting);
+}
+
+.cm-s-obsidian .HyperMD-quote:before {
+  /* add vertical line */
+  position: absolute;
+  content: '';
+  width: 4px;
+  height: 100%;
+  left: 1.4em;
+  background-color: var(--color-dracula-yellow);
+}
+
+.markdown-preview-view blockquote {
+  color: var(--color-dracula-yellow);
+  border: none; /* reset default box */
+  border-left: 4px solid var(--color-dracula-yellow);
+  font-style: italic;
+  padding: 0 0 0 1.4em;
+
+  /* like paragraphs, plus left margin */
+  margin: 0 0 1.5em 1.06em;
+}
+.markdown-preview-view blockquote > :last-child {
+  padding-bottom: 0;
+}
+
+/*
+ **************************************
+ * Bold and italic
+*/
+
+.cm-s-obsidian .cm-strong,
+.markdown-preview-view strong {
+  color: var(--color-dracula-orange);
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-em,
+.markdown-preview-view em {
+  color: var(--color-dracula-yellow);
+  font-style: italic;
+}
+
+.cm-s-obsidian .cm-formatting-strong,
+.cm-s-obsidian .cm-formatting-em {
+  font-size: 0.7em;
+  vertical-align: text-top;
+}
