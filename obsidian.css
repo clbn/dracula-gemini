@@ -32,6 +32,9 @@
 
   /* Button text */
   --text-on-accent: var(--color-dracula-foreground);
+
+  /* Note text */
+  --text-normal: var(--color-dracula-foreground);
 }
 
 /*
