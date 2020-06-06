@@ -310,3 +310,21 @@
 .markdown-preview-view pre code {
   color: var(--color-dracula-orange);
 }
+
+/*
+ **************************************
+ * Thematic breaks
+*/
+
+.cm-s-obsidian span.cm-hr {
+  color: var(--color-dracula-comment);
+  font-weight: bold;
+}
+
+.markdown-preview-view hr {
+  border-color: var(--color-dracula-comment);
+
+  /* to match Editor's paragraphs, the height must be = 0.6875 + 0.125 + 2.1875 = 3em */
+  border-top-width: 0.125em; /* 2px */
+  margin: 0.6875em 0 2.1875em 0;
+}
