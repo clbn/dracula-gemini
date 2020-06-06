@@ -79,6 +79,7 @@
 /*
  **************************************
  * Headings
+ * - Six Dracula colors (the "red" is not used)
  * - Sizes from 1.25em to 2em with 0.15em interval
  * - Same look in Editor and Preview (except for ###)
  * - Formatting (###) is header's font-size * 0.6
@@ -91,7 +92,6 @@
 .markdown-preview-view h4,
 .markdown-preview-view h5,
 .markdown-preview-view h6 {
-  color: var(--color-dracula-purple);
   font-weight: 600;
   line-height: 1.3 !important;
   padding: 0.2em 0 0.3em 0;
@@ -100,27 +100,33 @@
 
 .cm-s-obsidian .HyperMD-header-1,
 .markdown-preview-view h1 {
+  color: var(--color-dracula-pink);
   font-size: 2em;
   padding-top: 0; /* h1 is special like this */
 }
 .cm-s-obsidian .HyperMD-header-2,
 .markdown-preview-view h2 {
+  color: var(--color-dracula-purple);
   font-size: 1.85em;
 }
 .cm-s-obsidian .HyperMD-header-3,
 .markdown-preview-view h3 {
+  color: var(--color-dracula-cyan);
   font-size: 1.7em;
 }
 .cm-s-obsidian .HyperMD-header-4,
 .markdown-preview-view h4 {
+  color: var(--color-dracula-green);
   font-size: 1.55em;
 }
 .cm-s-obsidian .HyperMD-header-5,
 .markdown-preview-view h5 {
+  color: var(--color-dracula-yellow);
   font-size: 1.4em;
 }
 .cm-s-obsidian .HyperMD-header-6,
 .markdown-preview-view h6 {
+  color: var(--color-dracula-orange);
   font-size: 1.25em;
 }
 
