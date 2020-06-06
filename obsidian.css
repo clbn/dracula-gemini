@@ -244,6 +244,55 @@
 
 /*
  **************************************
+ * Links
+*/
+
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.markdown-preview-view a {
+  color: var(--color-dracula-pink);
+}
+
+.cm-s-obsidian span.cm-url {
+  color: var(--color-dracula-cyan);
+}
+
+.cm-s-obsidian span.cm-formatting-link,
+.cm-s-obsidian span.cm-formatting-link-string {
+  color: var(--text-faint);
+}
+
+/*
+ **************************************
+ * Hashtags
+*/
+
+.cm-s-obsidian span.cm-hashtag,
+.markdown-preview-view a.tag {
+  color: var(--color-dracula-pink);
+  background-color: var(--background-primary-alt);
+  text-decoration: none;
+  border-radius: 0.1875em; /* 3px */
+  padding: 0.125em 0.375em 0.1875em 0.375em; /* 2px 6px 3px 6px */
+}
+
+.cm-s-obsidian span.cm-hashtag {
+  border-radius: 0 0.1875em 0.1875em 0; /* 3px */
+  padding-left: 0;
+
+  /* without this line, the vertical padding in .cm-hashtag makes editor's cursor tiny; can fix, can't explain */
+  margin: -0.125em 0;
+}
+.cm-s-obsidian span.cm-hashtag.cm-formatting-hashtag {
+  font-family: inherit; /* not monospace */
+
+  border-radius: 0.1875em 0 0 0.1875em; /* 3px */
+  padding-left: 0.375em; /* 6px */
+  padding-right: 0;
+}
+
+/*
+ **************************************
  * Inline code
 */
 
