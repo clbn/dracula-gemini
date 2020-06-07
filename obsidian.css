@@ -65,6 +65,10 @@
   padding-left: 4px;
 }
 
+.workspace-leaf.mod-active .view-header {
+  border-bottom-color: var(--color-dracula-purple);
+}
+
 /*
  **************************************
  * Editor/Preview: general layout
