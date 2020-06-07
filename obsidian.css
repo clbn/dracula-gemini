@@ -320,7 +320,7 @@
 .markdown-preview-view code {
   color: var(--color-dracula-green);
   font-size: 1em;
-  padding: 0.125em 0.25em 0.1875em 0.25em; /* 2px 4px 3px 4px */
+  padding: 0.125em 0.375em 0.1875em 0.375em; /* 2px 6px 3px 6px */
   border-radius: 0.1875em; /* 3px */
 }
 
