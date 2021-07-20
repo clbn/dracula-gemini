@@ -82,6 +82,15 @@
 
 /*
  **************************************
+ * YAML front matter (metadata)
+*/
+
+.markdown-preview-view .frontmatter-container {
+  margin: 0 0 1.5em 0;
+}
+
+/*
+ **************************************
  * Headings
  * - Six Dracula colors (the "red" is not used)
  * - Sizes from 1.25em to 2em with 0.15em interval
