@@ -346,7 +346,7 @@
 .cm-s-obsidian span.cm-hmd-indented-code {
   color: var(--color-dracula-orange);
   font-size: 1em;
-  line-height: 1.4;
+  line-height: 1.375; /* 24px -> 22px */
 }
 
 .cm-s-obsidian .HyperMD-codeblock-begin,
@@ -357,16 +357,25 @@
   font-size: 0.7em;
   line-height: 1.2;
 
-  /* and move them down */
+  /* and move them down a bit */
   position: relative;
   top: 0.4em;
 }
 
-.markdown-preview-view pre {
+.markdown-preview-view pre,
+.markdown-preview-view pre[class*="language-"] {
+  /* second selector is needed to override typed code blocks without !important */
   font-size: 1em;
-  line-height: 1.4;
-  padding: 0.6875em 1em; /* 11px - to match Editor's top and bottom backtick rows */
+  line-height: 1.375; /* 24px -> 22px */
+  padding: 0.8125em 1em; /* 13px - to match Editor's top and bottom backtick rows */
   margin: 0 0 1.5em 0; /* like paragraphs */
+}
+
+.markdown-preview-view pre code,
+.markdown-preview-view pre code[class*="language-"] {
+  /* override it again for typed code blocks (e.g., "```js") */
+  display: block;
+  line-height: 1.375; /* 24px -> 22px */
 }
 
 .markdown-preview-view pre code {
