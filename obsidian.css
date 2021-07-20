@@ -381,3 +381,13 @@
   border-top-width: 0.125em; /* 2px */
   margin: 0.6875em 0 2.1875em 0;
 }
+
+/*
+ **************************************
+ * Tables
+*/
+
+.markdown-preview-view th {
+  background-color: var(--background-primary-alt);
+  font-weight: 600; /* not 800 */
+}
