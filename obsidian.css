@@ -108,7 +108,7 @@
 .markdown-preview-view h6 {
   font-weight: 600;
   line-height: 1.3 !important;
-  padding: 0.2em 0 0.3em 0;
+  padding: 0.2em 0 0 0;
   margin: 0;
 }
 
@@ -156,19 +156,45 @@
 
 /*
  **************************************
- * Paragraphs & lists
+ * Paragraphs & empty lines
+ * - in Editor, we'll have empty lines after each block (header, paragraph, list etc.)
+ * - in Preview, we'll emulate empty lines with the equivalent padding-bottoms
 */
 
+/* This is an empty line! Let's make it narrower. */
+.cm-s-obsidian [cm-text] {
+  display: block;
+  width: 0;
+
+  /* With font-size = 1em (16px) and line-height = 1.5, normal text has
+   * the height of 1.5em (24px). Here, we effectively change the height to 12px,
+   * which is equivalent to 0.75em in non-empty-line units. */
+  font-size: 0.5em;
+}
+
 .markdown-preview-view p {
-  /* to align it with Editor, make padding-bottom match the height of one row */
-  padding: 0 0 1.5em 0;
+  /* to align Preview with Editor, emulate empty line with padding-bottom */
+  padding: 0 0 0.75em 0;
   margin: 0;
 }
+
+/* to align Preview with Editor, emulate empty line after the header (sizing is tricky though) */
+.markdown-preview-view h1 { padding-bottom: calc(0.75em / 2);   } /* 12px */
+.markdown-preview-view h2 { padding-bottom: calc(0.75em / 1.8); } /* 12px */
+.markdown-preview-view h3 { padding-bottom: calc(0.75em / 1.6); } /* 12px */
+.markdown-preview-view h4 { padding-bottom: calc(0.75em / 1.4); } /* 12px */
+.markdown-preview-view h5 { padding-bottom: calc(0.75em / 1.2); } /* 12px */
+.markdown-preview-view h6 { padding-bottom: calc(0.75em / 1);   } /* 12px */
+
+/*
+ **************************************
+ * Lists
+*/
 
 .markdown-preview-view ul,
 .markdown-preview-view ol {
   /* like paragraphs, plus left padding */
-  padding: 0 0 1.5em 2em;
+  padding: 0 0 0.75em 2em;
   margin: 0;
 }
 
@@ -227,7 +253,7 @@
   padding: 0 0 0 1.4em;
 
   /* like paragraphs, plus left margin */
-  margin: 0 0 1.5em 1.06em;
+  margin: 0 0 0.75em 1.06em;
 }
 .markdown-preview-view blockquote > :last-child {
   padding-bottom: 0;
@@ -371,7 +397,7 @@
   font-size: 1em;
   line-height: 1.375; /* 24px -> 22px */
   padding: 0.8125em 1em; /* 13px - to match Editor's top and bottom backtick rows */
-  margin: 0 0 1.5em 0; /* like paragraphs */
+  margin: 0 0 0.75em 0; /* like paragraphs */
 }
 
 .markdown-preview-view pre code,
@@ -398,9 +424,9 @@
 .markdown-preview-view hr {
   border-color: var(--color-dracula-comment);
 
-  /* to match Editor's paragraphs, the height must be = 0.6875 + 0.125 + 2.1875 = 3em */
+  /* to match Editor's paragraphs, the height must be = 0.6875 + 0.125 + 1.4375 = 2.25em */
   border-top-width: 0.125em; /* 2px */
-  margin: 0.6875em 0 2.1875em 0;
+  margin: 0.6875em 0 1.4375em 0;
 }
 
 /*
