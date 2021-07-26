@@ -424,9 +424,15 @@
 .markdown-preview-view hr {
   border-color: var(--color-dracula-comment);
 
-  /* to match Editor's paragraphs, the height must be = 0.6875 + 0.125 + 1.4375 = 2.25em */
-  border-top-width: 0.125em; /* 2px */
-  margin: 0.6875em 0 1.4375em 0;
+  /* to match Editor's paragraphs, the height must be = 1.5 + 0.75 = 2.25em */
+  --hr-actual-size: 0.125em; /* 2px high */
+  --hr-required-size: 1.5em; /* normal text line height */
+  --hr-remainder: calc(var(--hr-required-size) - var(--hr-actual-size));
+  --hr-margin-top: calc(var(--hr-remainder) / 2);
+  --hr-margin-bottom: calc(var(--hr-margin-top) + 0.75em);
+
+  border-top-width: var(--hr-actual-size);
+  margin: var(--hr-margin-top) 0 var(--hr-margin-bottom) 0;
 }
 
 /*
