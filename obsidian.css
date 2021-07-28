@@ -15,6 +15,8 @@
   --color-faint-formatting-alt: #999;
   --color-dracula-comment-lighter: #7282b4;
   --color-dracula-yellow-ish: #f4f9bf; /* 50/50 blend of -yellow and -foreground */
+
+  --empty-line-height: 1em; /* 1em = 16px = 2/3 of the height of the normal line, which is 24px */
 }
 
 .theme-dark,
@@ -180,9 +182,9 @@
   width: 0;
 
   /* With font-size = 1em (16px) and line-height = 1.5, normal text has
-   * the height of 1.5em (24px). Here, we effectively change the height to 12px,
-   * which is equivalent to 0.75em in non-empty-line units. */
-  font-size: 0.5em;
+   * the height of 1.5em (24px). Here, we effectively change the height to 16px,
+   * which is equivalent to 1em in non-empty-line units. */
+  font-size: calc(var(--empty-line-height) / 1.5);
 }
 
 /* Empty line in Mobile app (CodeMirror 6) */
@@ -190,22 +192,23 @@
   display: block;
   content: ''; /* a way to style <br> */
   width: 0;
-  height: 0.75em;
+  height: var(--empty-line-height);
 }
 
 .markdown-preview-view p {
   /* to align Preview with Editor, emulate empty line with padding-bottom */
-  padding: 0 0 0.75em 0;
+  padding: 0 0 var(--empty-line-height) 0;
   margin: 0;
 }
 
-/* to align Preview with Editor, emulate empty line after the header (sizing is tricky though) */
-.markdown-preview-view h1 { padding-bottom: calc(0.75em / 2);   } /* 12px */
-.markdown-preview-view h2 { padding-bottom: calc(0.75em / 1.8); } /* 12px */
-.markdown-preview-view h3 { padding-bottom: calc(0.75em / 1.6); } /* 12px */
-.markdown-preview-view h4 { padding-bottom: calc(0.75em / 1.4); } /* 12px */
-.markdown-preview-view h5 { padding-bottom: calc(0.75em / 1.2); } /* 12px */
-.markdown-preview-view h6 { padding-bottom: calc(0.75em / 1);   } /* 12px */
+/* to align Preview with Editor, emulate empty line after the header
+   (sizing looks tricky, just to make the padding the same size in pixels) */
+.markdown-preview-view h1 { padding-bottom: calc(var(--empty-line-height) / 2); }
+.markdown-preview-view h2 { padding-bottom: calc(var(--empty-line-height) / 1.8); }
+.markdown-preview-view h3 { padding-bottom: calc(var(--empty-line-height) / 1.6); }
+.markdown-preview-view h4 { padding-bottom: calc(var(--empty-line-height) / 1.4); }
+.markdown-preview-view h5 { padding-bottom: calc(var(--empty-line-height) / 1.2); }
+.markdown-preview-view h6 { padding-bottom: calc(var(--empty-line-height) / 1); }
 
 /*
  **************************************
@@ -215,7 +218,7 @@
 .markdown-preview-view ul,
 .markdown-preview-view ol {
   /* like paragraphs, plus left padding */
-  padding: 0 0 0.75em 2em;
+  padding: 0 0 var(--empty-line-height) 2em;
   margin: 0;
 }
 
@@ -278,7 +281,7 @@
   padding: 0 0 0 1.4em;
 
   /* like paragraphs, plus left margin */
-  margin: 0 0 0.75em 1.06em;
+  margin: 0 0 var(--empty-line-height) 1.06em;
 }
 .markdown-preview-view blockquote > :last-child {
   padding-bottom: 0;
@@ -422,7 +425,7 @@
   font-size: 1em;
   line-height: 1.375; /* 24px -> 22px */
   padding: 0.8125em 1em; /* 13px - to match Editor's top and bottom backtick rows */
-  margin: 0 0 0.75em 0; /* like paragraphs */
+  margin: 0 0 var(--empty-line-height) 0; /* like paragraphs */
 }
 
 .markdown-preview-view pre code,
@@ -449,12 +452,12 @@
 .markdown-preview-view hr {
   border-color: var(--color-dracula-comment);
 
-  /* to match Editor's paragraphs, the height must be = 1.5 + 0.75 = 2.25em */
+  /* to match Editor's paragraphs, the height must be = 1.5 + empty-line-height */
   --hr-actual-size: 0.125em; /* 2px high */
   --hr-required-size: 1.5em; /* normal text line height */
   --hr-remainder: calc(var(--hr-required-size) - var(--hr-actual-size));
   --hr-margin-top: calc(var(--hr-remainder) / 2);
-  --hr-margin-bottom: calc(var(--hr-margin-top) + 0.75em);
+  --hr-margin-bottom: calc(var(--hr-margin-top) + var(--empty-line-height));
 
   border-top-width: var(--hr-actual-size);
   margin: var(--hr-margin-top) 0 var(--hr-margin-bottom) 0;
