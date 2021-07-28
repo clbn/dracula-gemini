@@ -76,9 +76,22 @@
 */
 
 .markdown-preview-view {
-  /* align Preview with Editor */
+  /* align Preview with Editor (Desktop app) */
   padding-left: 25px; /* 30px -> 25px */
   padding-right: 35px; /* 30px -> 35px */
+}
+
+.is-mobile .markdown-preview-view {
+  /* align Preview with Editor (Mobile app) */
+  padding: 10px 21px; /* 0 20px -> 10px 21px */
+}
+
+.is-mobile .cm-s-obsidian .cm-scroller {
+  line-height: 1.5 !important; /* 1.4 -> 1.5 */
+}
+
+.is-mobile .cm-s-obsidian .cm-content {
+  padding: 0; /* 4px 0 -> 0 */
 }
 
 /*
@@ -161,7 +174,7 @@
  * - in Preview, we'll emulate empty lines with the equivalent padding-bottoms
 */
 
-/* This is an empty line! Let's make it narrower. */
+/* Empty line in Desktop app (CodeMirror 5) */
 .cm-s-obsidian [cm-text] {
   display: block;
   width: 0;
@@ -170,6 +183,14 @@
    * the height of 1.5em (24px). Here, we effectively change the height to 12px,
    * which is equivalent to 0.75em in non-empty-line units. */
   font-size: 0.5em;
+}
+
+/* Empty line in Mobile app (CodeMirror 6) */
+.is-mobile .cm-s-obsidian .cm-line br:only-child {
+  display: block;
+  content: ''; /* a way to style <br> */
+  width: 0;
+  height: 0.75em;
 }
 
 .markdown-preview-view p {
@@ -233,6 +254,10 @@
 .cm-s-obsidian .HyperMD-quote .cm-formatting-quote {
   /* make '>' dimmed, but not invisible */
   color: var(--color-faint-formatting);
+}
+
+.is-mobile .cm-s-obsidian .HyperMD-quote {
+  position: relative; /* to make sure the vertical line from `:before` does not bleed out of the container */
 }
 
 .cm-s-obsidian .HyperMD-quote:before {
