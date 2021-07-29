@@ -230,9 +230,10 @@
   padding: 0 0 0 2em;
 }
 
+.cm-s-obsidian .HyperMD-list-line,
 .markdown-preview-view li {
-  /* matching top padding with the Editor's line container */
-  padding-top: 0.3em;
+  /* align paddings for Editor's line container and Preview's <li> */
+  padding: 0 0 0.4em 0; /* before: "0.3em 0 0 0" */
 }
 
 .markdown-preview-view li p {
