@@ -38,6 +38,7 @@
 
   /* Note text */
   --text-normal: var(--color-dracula-foreground);
+  --text-selection: var(--color-dracula-selection);
 }
 
 /*
