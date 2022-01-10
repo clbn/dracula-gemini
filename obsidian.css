@@ -78,12 +78,20 @@
  * Editor/Preview: general layout
 */
 
+.cm-s-obsidian {
+  /* align Editor with Preview (Desktop app) */
+  padding-left: 1px; /* 0 -> 1px */
+}
 .markdown-preview-view {
   /* align Preview with Editor (Desktop app) */
   padding-left: 25px; /* 30px -> 25px */
   padding-right: 35px; /* 30px -> 35px */
 }
 
+.is-mobile .cm-s-obsidian {
+  /* align Editor with Preview (Mobile app) */
+  padding-left: 0; /* 5px -> 0 */
+}
 .is-mobile .markdown-preview-view {
   /* align Preview with Editor (Mobile app) */
   padding: 10px 21px; /* 0 20px -> 10px 21px */
@@ -95,6 +103,10 @@
 
 .is-mobile .cm-s-obsidian .cm-content {
   padding: 0; /* 4px 0 -> 0 */
+}
+
+.cm-s-obsidian .CodeMirror-line {
+  padding-left: 4px;
 }
 
 /*
@@ -126,6 +138,10 @@
   line-height: 1.3 !important;
   padding: 0.2em 0 0 0;
   margin: 0;
+}
+
+.cm-s-obsidian .HyperMD-header {
+  padding-left: 4px;
 }
 
 .cm-s-obsidian .HyperMD-header-1,
