@@ -205,12 +205,20 @@
 }
 
 /* Empty line in Mobile app (CodeMirror 6) */
+/* While this *mostly* works, it's buggy: when removing one empty line,
+ * the mobile app might remove two consecutive empty lines instead,
+ * or when trying to add an empty line, the app might refuse to do so
+ * (pressing Enter in the middle of the text does nothing). So after a few
+ * weeks of testing, I'm commenting it out and let the Editor's empty line
+ * to not match the Preview's (in the mobile app only). */
+/*
 .is-mobile .cm-s-obsidian .cm-line br:only-child {
   display: block;
-  content: ''; /* a way to style <br> */
+  content: ''; !* a way to style <br> *!
   width: 0;
   height: var(--empty-line-height);
 }
+*/
 
 .markdown-preview-view p {
   /* to align Preview with Editor, emulate empty line with padding-bottom */
