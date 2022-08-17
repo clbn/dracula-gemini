@@ -85,7 +85,7 @@
   padding-top: 24px; /* 15px -> 24px */
 }
 
-.is-mobile .cm-s-obsidian {
+.is-mobile .markdown-source-view {
   /* align Editor with Preview (Mobile app) */
   padding-left: 0; /* 5px -> 0 */
 }
@@ -94,11 +94,11 @@
   padding: 10px 21px; /* 0 20px -> 10px 21px */
 }
 
-.cm-s-obsidian .cm-scroller {
+.markdown-source-view .cm-scroller {
   line-height: 1.5 !important; /* 1.4 -> 1.5 */
 }
 
-.is-mobile .cm-s-obsidian .cm-content {
+.is-mobile .markdown-source-view .cm-content {
   padding: 0; /* 4px 0 -> 0 */
 }
 
@@ -133,7 +133,7 @@
  * - Formatting (###) is header's font-size * 0.6
 */
 
-.cm-s-obsidian .HyperMD-header,
+.markdown-source-view .HyperMD-header,
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -146,49 +146,49 @@
   margin: 0;
 }
 
-.cm-s-obsidian .HyperMD-header {
+.markdown-source-view .HyperMD-header {
   padding-left: 4px;
 }
 
-.cm-s-obsidian .HyperMD-header-1,
+.markdown-source-view .HyperMD-header-1,
 .markdown-preview-view h1 {
   color: var(--color-dracula-pink);
   font-size: 2em;
   padding-top: 0; /* h1 is special like this */
 }
-.cm-s-obsidian .HyperMD-header-2,
+.markdown-source-view .HyperMD-header-2,
 .markdown-preview-view h2 {
   color: var(--color-dracula-purple);
   font-size: 1.8em;
 }
-.cm-s-obsidian .HyperMD-header-3,
+.markdown-source-view .HyperMD-header-3,
 .markdown-preview-view h3 {
   color: var(--color-dracula-cyan);
   font-size: 1.6em;
 }
-.cm-s-obsidian .HyperMD-header-4,
+.markdown-source-view .HyperMD-header-4,
 .markdown-preview-view h4 {
   color: var(--color-dracula-green);
   font-size: 1.4em;
 }
-.cm-s-obsidian .HyperMD-header-5,
+.markdown-source-view .HyperMD-header-5,
 .markdown-preview-view h5 {
   color: var(--color-dracula-yellow);
   font-size: 1.2em;
 }
-.cm-s-obsidian .HyperMD-header-6,
+.markdown-source-view .HyperMD-header-6,
 .markdown-preview-view h6 {
   color: var(--color-dracula-orange);
   font-size: 1em;
 }
 
-.cm-s-obsidian .HyperMD-header .cm-header {
+.markdown-source-view .HyperMD-header .cm-header {
   /* inherit from its parent, .HyperMD-header, defined above */
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
 }
-.cm-s-obsidian .HyperMD-header .cm-formatting-header {
+.markdown-source-view .HyperMD-header .cm-formatting-header {
   font-size: 0.6em !important;
 }
 
@@ -200,7 +200,7 @@
 */
 
 /* Empty line in Desktop app */
-.cm-s-obsidian .cm-line br:only-child {
+.markdown-source-view .cm-line br:only-child {
   display: block;
   content: ''; /* a way to style <br> */
   width: 0;
@@ -213,7 +213,7 @@
  * (pressing Enter in the middle of the text does nothing). So after a few
  * weeks of testing, I'm disabling it on mobile and let the Editor's empty
  * line to not match the Preview's (in the mobile app only). */
-.is-mobile .cm-s-obsidian .cm-line br:only-child {
+.is-mobile .markdown-source-view .cm-line br:only-child {
   display: inline;
   content: normal;
   width: auto;
@@ -275,25 +275,25 @@
  * Block quotes
 */
 
-.cm-s-obsidian .HyperMD-quote {
+.markdown-source-view .HyperMD-quote {
   padding-left: 3em !important;
 }
 
-.cm-s-obsidian .HyperMD-quote .cm-quote {
+.markdown-source-view .HyperMD-quote .cm-quote {
   color: var(--color-dracula-yellow-ish);
   font-style: italic;
 }
 
-.cm-s-obsidian .HyperMD-quote .cm-formatting-quote {
+.markdown-source-view .HyperMD-quote .cm-formatting-quote {
   /* make '>' dimmed, but not invisible */
   color: var(--color-faint-formatting);
 }
 
-.is-mobile .cm-s-obsidian .HyperMD-quote {
+.is-mobile .markdown-source-view .HyperMD-quote {
   position: relative; /* to make sure the vertical line from `:before` does not bleed out of the container */
 }
 
-.cm-s-obsidian .HyperMD-quote:before {
+.markdown-source-view .HyperMD-quote:before {
   /* add vertical line */
   position: absolute;
   content: '';
@@ -322,22 +322,22 @@
  * Bold and italic
 */
 
-.cm-s-obsidian .cm-strong,
-.cm-s-obsidian .HyperMD-quote .cm-quote.cm-strong,
+.markdown-source-view .cm-strong,
+.markdown-source-view .HyperMD-quote .cm-quote.cm-strong,
 .markdown-preview-view strong {
   color: var(--color-dracula-orange);
   font-weight: bold;
 }
 
-.cm-s-obsidian .cm-em,
-.cm-s-obsidian .HyperMD-quote .cm-quote.cm-em,
+.markdown-source-view .cm-em,
+.markdown-source-view .HyperMD-quote .cm-quote.cm-em,
 .markdown-preview-view em {
   color: var(--color-dracula-yellow);
   font-style: italic;
 }
 
-.cm-s-obsidian .cm-formatting-strong,
-.cm-s-obsidian .cm-formatting-em {
+.markdown-source-view .cm-formatting-strong,
+.markdown-source-view .cm-formatting-em {
   font-size: 0.7em;
   vertical-align: text-top;
 }
@@ -347,18 +347,18 @@
  * Links
 */
 
-.cm-s-obsidian span.cm-link,
-.cm-s-obsidian span.cm-hmd-internal-link,
+.markdown-source-view span.cm-link,
+.markdown-source-view span.cm-hmd-internal-link,
 .markdown-preview-view a {
   color: var(--color-dracula-pink);
 }
 
-.cm-s-obsidian span.cm-url {
+.markdown-source-view span.cm-url {
   color: var(--color-dracula-cyan);
 }
 
-.cm-s-obsidian span.cm-formatting-link,
-.cm-s-obsidian span.cm-formatting-link-string {
+.markdown-source-view span.cm-formatting-link,
+.markdown-source-view span.cm-formatting-link-string {
   color: var(--text-faint);
 }
 
@@ -367,7 +367,7 @@
  * Hashtags
 */
 
-.cm-s-obsidian span.cm-hashtag,
+.markdown-source-view span.cm-hashtag,
 .markdown-preview-view a.tag {
   color: var(--color-dracula-pink);
   background-color: var(--background-primary-alt);
@@ -376,14 +376,14 @@
   padding: 0.125em 0.375em 0.1875em 0.375em; /* 2px 6px 3px 6px */
 }
 
-.cm-s-obsidian span.cm-hashtag {
+.markdown-source-view span.cm-hashtag {
   border-radius: 0 0.1875em 0.1875em 0; /* 3px */
   padding-left: 0;
 
   /* without this line, the vertical padding in .cm-hashtag makes editor's cursor tiny; can fix, can't explain */
   margin: -0.125em 0;
 }
-.cm-s-obsidian span.cm-hashtag.cm-formatting-hashtag {
+.markdown-source-view span.cm-hashtag.cm-formatting-hashtag {
   font-family: inherit; /* not monospace */
 
   border-radius: 0.1875em 0 0 0.1875em; /* 3px */
@@ -396,7 +396,7 @@
  * Inline code
 */
 
-.cm-s-obsidian span.cm-inline-code {
+.markdown-source-view span.cm-inline-code {
   color: var(--color-dracula-green);
   font-size: 1em;
 
@@ -409,7 +409,7 @@
   z-index: 2;
 }
 
-.cm-s-obsidian span.cm-inline-code.cm-formatting-code {
+.markdown-source-view span.cm-inline-code.cm-formatting-code {
   color: var(--color-faint-formatting-alt);
   border-radius: 0.1875em; /* 3px */
 
@@ -429,15 +429,15 @@
  * Block code
 */
 
-.cm-s-obsidian .HyperMD-codeblock,
-.cm-s-obsidian span.cm-hmd-indented-code {
+.markdown-source-view .HyperMD-codeblock,
+.markdown-source-view span.cm-hmd-indented-code {
   color: var(--color-dracula-orange);
   font-size: 1em;
   line-height: 1.375; /* 24px -> 22px */
 }
 
-.cm-s-obsidian .HyperMD-codeblock-begin,
-.cm-s-obsidian .HyperMD-codeblock-end {
+.markdown-source-view .HyperMD-codeblock-begin,
+.markdown-source-view .HyperMD-codeblock-end {
   color: var(--color-faint-formatting-alt);
 
   /* make backticks small */
@@ -474,7 +474,7 @@
  * Thematic breaks
 */
 
-.cm-s-obsidian span.cm-hr {
+.markdown-source-view span.cm-hr {
   color: var(--color-dracula-comment);
   font-weight: bold;
 }
