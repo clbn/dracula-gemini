@@ -77,14 +77,11 @@
  * Editor/Preview: general layout
 */
 
-.cm-s-obsidian {
-  /* align Editor with Preview (Desktop app) */
-  padding-left: 1px; /* 0 -> 1px */
-}
 .markdown-preview-view {
   /* align Preview with Editor (Desktop app) */
-  padding-left: 25px; /* 30px -> 25px */
+  padding-left: 24px; /* 30px -> 24px */
   padding-right: 35px; /* 30px -> 35px */
+  padding-top: 24px; /* 15px -> 24px */
 }
 
 .is-mobile .cm-s-obsidian {
@@ -96,16 +93,12 @@
   padding: 10px 21px; /* 0 20px -> 10px 21px */
 }
 
-.is-mobile .cm-s-obsidian .cm-scroller {
+.cm-s-obsidian .cm-scroller {
   line-height: 1.5 !important; /* 1.4 -> 1.5 */
 }
 
 .is-mobile .cm-s-obsidian .cm-content {
   padding: 0; /* 4px 0 -> 0 */
-}
-
-.cm-s-obsidian .CodeMirror-line {
-  padding-left: 4px;
 }
 
 /*
@@ -182,7 +175,7 @@
   font-weight: inherit;
 }
 .cm-s-obsidian .HyperMD-header .cm-formatting-header {
-  font-size: 0.6em;
+  font-size: 0.6em !important;
 }
 
 /*
@@ -192,32 +185,27 @@
  * - in Preview, we'll emulate empty lines with the equivalent padding-bottoms
 */
 
-/* Empty line in Desktop app (CodeMirror 5) */
-.cm-s-obsidian [cm-text] {
+/* Empty line in Desktop app */
+.cm-s-obsidian .cm-line br:only-child {
   display: block;
-  width: 0;
-
-  /* With font-size = 1em (16px) and line-height = 1.5, normal text has
-   * the height of 1.5em (24px). Here, we effectively change the height to 16px,
-   * which is equivalent to 1em in non-empty-line units. */
-  font-size: calc(var(--empty-line-height) / 1.5);
-}
-
-/* Empty line in Mobile app (CodeMirror 6) */
-/* While this *mostly* works, it's buggy: when removing one empty line,
- * the mobile app might remove two consecutive empty lines instead,
- * or when trying to add an empty line, the app might refuse to do so
- * (pressing Enter in the middle of the text does nothing). So after a few
- * weeks of testing, I'm commenting it out and let the Editor's empty line
- * to not match the Preview's (in the mobile app only). */
-/*
-.is-mobile .cm-s-obsidian .cm-line br:only-child {
-  display: block;
-  content: ''; !* a way to style <br> *!
+  content: ''; /* a way to style <br> */
   width: 0;
   height: var(--empty-line-height);
 }
-*/
+/* Empty line in Mobile app */
+/* On mobile, it's buggy: when removing one empty line,
+ * the mobile app might remove two consecutive empty lines instead,
+ * or when trying to add an empty line, the app might refuse to do so
+ * (pressing Enter in the middle of the text does nothing). So after a few
+ * weeks of testing, I'm disabling it on mobile and let the Editor's empty
+ * line to not match the Preview's (in the mobile app only). */
+.is-mobile .cm-s-obsidian .cm-line br:only-child {
+  display: inline;
+  content: normal;
+  width: auto;
+  height: auto;
+}
+
 
 .markdown-preview-view p {
   /* to align Preview with Editor, emulate empty line with padding-bottom */
