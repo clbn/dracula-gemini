@@ -17,6 +17,7 @@
   --color-dracula-yellow-ish: #f4f9bf; /* 50/50 blend of -yellow and -foreground */
 
   --empty-line-height: 1em; /* 1em = 16px = 2/3 of the height of the normal line, which is 24px */
+  --list-item-margin: 0.375em; /* bottom margin for a list item, to keep the items separated */
 }
 
 .theme-dark,
@@ -230,22 +231,25 @@
 .markdown-preview-view ul,
 .markdown-preview-view ol {
   /* like paragraphs, plus left padding */
-  padding: 0 0 var(--empty-line-height) 2em;
-  margin: 0;
+  margin: 0 0 calc(var(--empty-line-height) + var(--list-item-margin)) 1.5em;
+  padding: 0;
 }
 
 .markdown-preview-view ul ul,
 .markdown-preview-view ul ol,
 .markdown-preview-view ol ul,
 .markdown-preview-view ol ol {
-  /* nested lists don't need vertical padding */
-  padding: 0 0 0 2em;
+  /* nested lists use top padding, instead of bottom one */
+  margin-top: var(--list-item-margin);
+  margin-bottom: 0;
 }
 
-.cm-s-obsidian .HyperMD-list-line,
+/* align paddings for Editor's line container and Preview's <li> */
+.markdown-source-view .HyperMD-list-line {
+  padding: 0 0 var(--list-item-margin) 0;
+}
 .markdown-preview-view li {
-  /* align paddings for Editor's line container and Preview's <li> */
-  padding: 0 0 0.4em 0; /* before: "0.3em 0 0 0" */
+  margin: 0 0 var(--list-item-margin) 0;
 }
 
 .markdown-preview-view li p {
