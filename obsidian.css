@@ -433,7 +433,7 @@
 
   /* and move them down a bit */
   position: relative;
-  top: 0.4em;
+  padding-top: 0.4em;
 }
 
 .markdown-preview-view pre,
