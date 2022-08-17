@@ -107,6 +107,19 @@
  * YAML front matter (metadata)
 */
 
+/* All front matter fields (if you enable it in the settings) */
+.markdown-source-view .cm-hmd-frontmatter {
+  line-height: 1.4em; /* monospace font is weird */
+}
+.markdown-preview-view pre.frontmatter {
+  padding: 1.5em 1em !important;
+}
+.markdown-preview-view pre.frontmatter code {
+  line-height: 1.5em !important;
+  padding: 0;
+}
+
+/* Supported subset of front matter is rendered in this separate block */
 .markdown-preview-view .frontmatter-container {
   margin: 0 0 1.5em 0;
 }
