@@ -16,8 +16,13 @@
   --color-dracula-comment-lighter: #7282b4;
   --color-dracula-yellow-ish: #f4f9bf; /* 50/50 blend of -yellow and -foreground */
 
+  --header-hanging-margin: 30px; /* extra margin for hanging ### (header formatting) in there */
   --empty-line-height: 1em; /* 1em = 16px = 2/3 of the height of the normal line, which is 24px */
   --list-item-margin: 0.375em; /* bottom margin for a list item, to keep the items separated */
+}
+
+.is-mobile {
+  --header-hanging-margin: 0px; /* must be `0px`, not `0`, for using in calc() */
 }
 
 .theme-dark,
@@ -80,8 +85,8 @@
 
 .markdown-preview-view {
   /* align Preview with Editor (Desktop app) */
-  padding-left: 24px; /* 30px -> 24px */
-  padding-right: 35px; /* 30px -> 35px */
+  padding-left: calc(var(--header-hanging-margin) + 24px); /* 30px -> extra + 24px */
+  padding-right: calc(var(--header-hanging-margin) + 22px); /* 30px -> extra + 22px */
   padding-top: 24px; /* 15px -> 24px */
 }
 
@@ -95,6 +100,8 @@
 }
 
 .markdown-source-view .cm-scroller {
+  padding-left: calc(var(--header-hanging-margin) + 20px) !important; /* 20px -> extra + 20px */
+  padding-right: calc(var(--header-hanging-margin) + 20px) !important; /* 20px -> extra + 20px */
   line-height: 1.5 !important; /* 1.4 -> 1.5 */
 }
 
@@ -191,6 +198,23 @@
 .markdown-source-view .HyperMD-header .cm-formatting-header {
   font-size: 0.6em !important;
 }
+
+/* Hanging headers (desktop only) */
+.markdown-source-view .HyperMD-header {
+  position: relative;
+}
+.is-mobile .markdown-source-view .HyperMD-header {
+  position: initial;
+}
+.markdown-source-view .HyperMD-header .cm-formatting-header {
+  opacity: 0.4;
+}
+.markdown-source-view .HyperMD-header-1 { left: -0.4884em; }
+.markdown-source-view .HyperMD-header-2 { left: -0.8562em; }
+.markdown-source-view .HyperMD-header-3 { left: -1.2402em; }
+.markdown-source-view .HyperMD-header-4 { left: -1.7866em; }
+.markdown-source-view .HyperMD-header-5 { left: -2.2291em; }
+.markdown-source-view .HyperMD-header-6 { left: -2.6894em; }
 
 /*
  **************************************
