@@ -83,30 +83,24 @@
  * Editor/Preview: general layout
 */
 
+/* Align Preview with Editor (Desktop app) */
 .markdown-preview-view {
-  /* align Preview with Editor (Desktop app) */
   padding-left: calc(var(--header-hanging-margin) + 24px); /* 30px -> extra + 24px */
   padding-right: calc(var(--header-hanging-margin) + 22px); /* 30px -> extra + 22px */
   padding-top: 24px; /* 15px -> 24px */
 }
-
-.is-mobile .markdown-source-view {
-  /* align Editor with Preview (Mobile app) */
-  padding-left: 0; /* 5px -> 0 */
-}
-.is-mobile .markdown-preview-view {
-  /* align Preview with Editor (Mobile app) */
-  padding: 10px 21px; /* 0 20px -> 10px 21px */
-}
-
 .markdown-source-view .cm-scroller {
   padding-left: calc(var(--header-hanging-margin) + 20px) !important; /* 20px -> extra + 20px */
   padding-right: calc(var(--header-hanging-margin) + 20px) !important; /* 20px -> extra + 20px */
   line-height: 1.5 !important; /* 1.4 -> 1.5 */
 }
 
-.is-mobile .markdown-source-view .cm-content {
-  padding: 0; /* 4px 0 -> 0 */
+/* Align Preview with Editor (Mobile app) */
+.is-mobile .markdown-preview-view {
+  padding: 15px; /* 0 20px -> 15px */
+}
+.is-mobile .markdown-source-view .cm-scroller {
+  padding: 11px !important; /* 20px -> 11px */
 }
 
 /*
