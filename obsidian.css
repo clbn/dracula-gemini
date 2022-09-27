@@ -203,12 +203,12 @@
 .markdown-source-view .HyperMD-header .cm-formatting-header {
   opacity: 0.4;
 }
-.markdown-source-view .HyperMD-header-1 { left: -0.4884em; }
-.markdown-source-view .HyperMD-header-2 { left: -0.8562em; }
-.markdown-source-view .HyperMD-header-3 { left: -1.2402em; }
-.markdown-source-view .HyperMD-header-4 { left: -1.7866em; }
-.markdown-source-view .HyperMD-header-5 { left: -2.2291em; }
-.markdown-source-view .HyperMD-header-6 { left: -2.6894em; }
+.markdown-source-view .HyperMD-header-1 { text-indent: -0.4884em; }
+.markdown-source-view .HyperMD-header-2 { text-indent: -0.8562em; }
+.markdown-source-view .HyperMD-header-3 { text-indent: -1.2402em; }
+.markdown-source-view .HyperMD-header-4 { text-indent: -1.7866em; }
+.markdown-source-view .HyperMD-header-5 { text-indent: -2.2291em; }
+.markdown-source-view .HyperMD-header-6 { text-indent: -2.6894em; }
 
 /*
  **************************************
@@ -356,8 +356,17 @@
 
 .markdown-source-view .cm-formatting-strong,
 .markdown-source-view .cm-formatting-em {
-  font-size: 0.7em;
-  vertical-align: text-top;
+  opacity: 0.4;
+  font-weight: normal; /* for bold text, make the formatting asterisks non-bold */
+
+  /* We still let the asterisks for italic text to be italic though,
+     so they align better with the text between them. */
+
+  /* Previously, we used `font-size: 0.7em; vertical-align: text-top;` here.
+     This caused "funny" navigation issues: when pressed DOWN from **phrase|**,
+     the cursor would go to the end of the current line, instead of the middle
+     of the next line. So it's better to keep formatting the same font size and
+     v-alignment. */
 }
 
 /*
