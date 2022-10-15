@@ -1,3 +1,9 @@
+/*
+ * This is a legacy file for the pre-v1 Obsidian app. It's not
+ * maintained anymore, but older versions of Obsidian might use it.
+ * For the up-to-date version, see `theme.css`.
+ */
+
 :root {
   --color-dracula-background: #282a36;
   --color-dracula-selection: #44475a; /* a.k.a. "Current line" */
