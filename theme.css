@@ -24,6 +24,9 @@ body {
   --accent-h: 225;
   --accent-s: 27%;
   --accent-l: 51%;
+
+  /* Text editor layout */
+  --file-margins: var(--size-4-8) var(--size-4-12); /* wider left margin for hanging header prefixes (see below) */
 }
 
 body.theme-dark {
