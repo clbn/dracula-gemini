@@ -101,6 +101,18 @@ body {
 
 body {
   --code-size: var(--font-small); /* `small` is a bit bigger than code's default `smaller` */
+
+  --code-normal:      var(--text-muted);                /* --text-muted */
+  --code-comment:     var(--color-dracula-comment);     /* --text-faint */
+  --code-function:    var(--color-dracula-green);       /* --color-yellow */
+  --code-important:   var(--color-dracula-red);         /* --color-orange */
+  --code-keyword:     var(--color-dracula-pink);        /* --color-pink */
+  --code-operator:    var(--color-dracula-foreground);  /* --color-red */
+  --code-property:    var(--color-dracula-orange);      /* --color-cyan */
+  --code-punctuation: var(--text-muted);                /* --text-muted */
+  --code-string:      var(--color-dracula-yellow);      /* --color-green */
+  --code-tag:         var(--color-dracula-red);         /* --color-red */
+  --code-value:       var(--color-dracula-purple);      /* --color-purple */
 }
 
 .markdown-source-view .HyperMD-codeblock-begin,
