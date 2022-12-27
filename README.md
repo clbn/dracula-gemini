@@ -2,6 +2,8 @@
 
 A dark theme for [Obsidian.md](https://obsidian.md/) with [Dracula](https://draculatheme.com/) color palette.
 
+![Dracula Gemini: cover image](images/cover.png)
+
 ## Installation
 
 ### Obsidian marketplace (recommended)
