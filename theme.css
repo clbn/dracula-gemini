@@ -43,6 +43,12 @@ body.theme-dark {
   --color-base-100: var(--color-dracula-foreground); /* a.k.a. hsl(60, 30%, 96%) */
 }
 
+body.theme-dark.is-mobile {
+  --color-base-00: hsl(231, 15%, 12%); /* 6pp lower than Desktop, default was #000000 */
+  --color-base-10: hsl(231, 15%, 17%); /* 5pp lower than Desktop, default was #121212 */
+  --color-base-20: hsl(231, 15%, 20%); /* 4pp lower than Desktop, default was #1e1e1e */
+}
+
 /*
  ********************************************************************************************************************
   * Block quotes
