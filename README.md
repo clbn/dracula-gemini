@@ -1,5 +1,7 @@
 # Dracula Gemini
 
+[![MIT License](https://img.shields.io/github/license/clbn/dracula-gemini?style=flat-square&color=ff79c6)](./LICENSE)&nbsp; ![Release Badge](https://img.shields.io/github/v/release/clbn/dracula-gemini?style=flat-square&color=50fa7b)
+
 A dark theme for [Obsidian.md](https://obsidian.md/) with [Dracula](https://draculatheme.com/) color palette.
 
 ![Dracula Gemini: cover image](images/cover.png)
