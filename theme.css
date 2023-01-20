@@ -359,19 +359,48 @@ body {
  * - We make it look very much like a code block
 */
 
-.markdown-source-view .cm-line:has(> .cm-def.cm-hmd-frontmatter) {
+/* All metadata rows (formatting + content) */
+.markdown-source-view .cm-line:has(> .cm-hmd-frontmatter) {
+  background-color: var(--code-background);
+  padding-left: var(--size-4-4);
+}
+
+/* Text in metadata rows (formatting + content) */
+.markdown-source-view .cm-line > .cm-hmd-frontmatter {
+  color: var(--text-faint);
+}
+
+/* Formatting rows (top and bottom) */
+.markdown-source-view .cm-line:has(> .cm-hmd-frontmatter.cm-def) {
   /* make "---" small */
   font-size: 0.625em;
 
   /* limit "top padding" height of the block */
   height: 0.75rem; /* 12px */
+  line-height: 0.75rem; /* 12px */
+
+  border-radius: var(--radius-s) var(--radius-s) 0 0;
 }
 
+/* Bottom formatting row */
+.markdown-source-view .cm-line:has(> .cm-hmd-frontmatter) + .cm-line:has(> .cm-hmd-frontmatter.cm-def) {
+  border-radius: 0 0 var(--radius-s) var(--radius-s);
+}
+
+/* Content rows */
+.markdown-source-view .cm-line > .cm-hmd-frontmatter:not(.cm-def) {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  vertical-align: top;
+}
+
+/* The rest is for Preview */
 .markdown-preview-view .frontmatter-container {
-  padding: 0.75em 1em; /* 12px - to match Source's top and bottom backtick rows */
-  margin: 0 0 var(--empty-line-height) 0; /* like paragraphs */
+  color: var(--text-faint);
   background-color: var(--code-background);
   border-radius: var(--radius-s);
+  padding: 0.75em 1em; /* 12px - to match Source's top and bottom backtick rows */
+  margin: 0 0 var(--empty-line-height) 0; /* like paragraphs */
 }
 .markdown-preview-view .frontmatter-container-header {
   display: none;
