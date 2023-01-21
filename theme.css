@@ -227,12 +227,18 @@ body {
 }
 
 /* Hanging prefixes (### is outside in the text margin) */
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-1 { text-indent: -0.4884em; }
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-2 { text-indent: -0.8562em; }
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-3 { text-indent: -1.2402em; }
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-4 { text-indent: -1.7866em; }
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-5 { text-indent: -2.2291em; }
-.markdown-source-view:not(.is-live-preview) .HyperMD-header-6 { text-indent: -2.6894em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-1,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-1 { text-indent: -0.4884em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-2,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-2 { text-indent: -0.8562em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-3,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-3 { text-indent: -1.2402em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-4,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-4 { text-indent: -1.7866em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-5,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-5 { text-indent: -2.2291em; }
+.markdown-source-view:not(.is-live-preview) .HyperMD-header-6,
+.markdown-source-view.is-live-preview .cm-active.HyperMD-header-6 { text-indent: -2.6894em; }
 
 /* Empty line after headers, to align Preview with Source (sizing looks
    tricky, but it's just to make the padding the same size in pixels) */
