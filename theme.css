@@ -16,7 +16,6 @@
 
   --empty-line-height: 1em; /* 1em = 16px = 2/3 of the height of the normal line, which is 24px */
   --header-hanging-margin: 30px; /* extra margin for hanging ### (header formatting) in there */
-  --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
 }
 
 body {
@@ -280,16 +279,49 @@ body {
 */
 
 body {
+  /* Obsidian vars */
   --list-spacing: 0; /* takes care of vertical padding on list items */
+  --list-indent: 1.172em; /* with the code below, this var only affects OL */
+
+  /* Custom vars */
+  --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
+  --list-ul-margin: 0.272em; /* left margin of ul list, before `- ` */
+  --list-ul-bullet-width: 0.75em; /* width of `- ` is 11.42px by default, we round it to 12px */
+  --list-ol-margin: 0.125em; /* left margin of ol list, before `1. ` */
+  --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
 }
 
-/* List items in Source view */
+/* Source OL+UL list items (vertical) */
 .markdown-source-view .HyperMD-list-line + .HyperMD-list-line {
   padding-top: var(--list-item-gap) !important;
   padding-bottom: 0 !important;
 }
 
-/* List items in Preview
+/* Source UL indentation (top-level only) */
+.markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ul) {
+  text-indent: calc(-1 * var(--list-ul-bullet-width)) !important;
+  padding-inline-start: calc(var(--list-ul-margin) + var(--list-ul-bullet-width)) !important;
+}
+/* Source OL indentation (top-level only) */
+.markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ol) {
+  text-indent: calc(-1 * var(--list-ol-bullet-width)) !important;
+  padding-inline-start: calc(var(--list-ol-margin) + var(--list-ol-bullet-width)) !important;
+}
+
+/* Source UL bullet width (any-level) */
+.markdown-source-view .HyperMD-list-line .cm-formatting-list-ul {
+  display: inline-block;
+  min-width: var(--list-ul-bullet-width);
+  text-align: right;
+}
+/* Source OL bullet width (any-level) */
+.markdown-source-view .HyperMD-list-line .cm-formatting-list-ol {
+  display: inline-block;
+  min-width: var(--list-ol-bullet-width);
+  text-align: right;
+}
+
+/* Preview UL+OL list items (vertical)
  * - top-level ones get gaps, except for the first one
  * - nested ones get gaps, including the first one */
 .markdown-preview-view li + li,
@@ -297,17 +329,29 @@ body {
   margin: var(--list-item-gap) 0 0 0;
 }
 
-/* Top-level lists in Preview */
+/* Preview UL+OL lists (vertical, top-level only) */
 .markdown-preview-view :not(li) > ul,
 .markdown-preview-view :not(li) > ol {
-  margin: 0 0 var(--empty-line-height) 1.375em; /* like paragraphs, plus left margin matching Source view */
+  margin-top: 0;
+  margin-bottom: var(--empty-line-height); /* like paragraphs */
+}
+
+/* Preview UL indentation (any-level) */
+.markdown-preview-view ul {
+  margin-left: calc(var(--list-ul-margin) + var(--list-ul-bullet-width));
+  padding: 0;
+}
+/* Preview OL indentation (top-level only) */
+.markdown-preview-view :not(li) > ol {
+  margin-left: calc(var(--list-ol-margin) + var(--list-ol-bullet-width));
   padding: 0;
 }
 
-/* Move UL bullet a bit down and right */
+/* Preview UL bullet: move down and right */
 .markdown-preview-view .list-bullet {
   justify-content: initial;
-  padding: 0.0625em 0 0 0.0625em; /* 1px 0 0 1px */
+  padding-top: 0.0625em; /* 1px */
+  margin-left: -0.75em; /* distance between bullet and text; default is -1em */
 }
 
 /*
