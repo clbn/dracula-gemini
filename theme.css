@@ -128,6 +128,8 @@ body {
   /* limit "top padding" height of the block */
   height: 0.75rem; /* 12px */
   line-height: 1.2rem !important; /* move backticks a bit down */
+}
+.markdown-source-view .HyperMD-codeblock-begin {
   z-index: 1; /* make overflow visible */
 }
 
