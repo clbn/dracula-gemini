@@ -8,7 +8,7 @@ A dark theme for [Obsidian.md](https://obsidian.md/) with [Dracula](https://drac
 
 ## Why
 
-It started as an experiment. I wanted to make the typography of Source mode look nicer: good spacing between paragraphs, reasonable margins around headers, et cetera. I wanted it to look like the Reading view, or at least close enough.
+It started as an experiment. I wanted to make the typography of Source mode look nicer: good spacing between paragraphs, reasonable margins around headers, the little details. I wanted it to look like the Reading view, or at least close enough.
 
 I realize that Live Preview is a great way for many Obsidian users to edit their notes, but I strongly prefer the "raw" experience of Source mode. Navigating the text in Live Preview makes sentences jump back and forth under the cursor (when formatting syntax shows up and hides again), and I find that very distracting during writing. Besides, I like Markdown.
 
@@ -23,12 +23,44 @@ It aims to make the Editing view look awesome, implementing:
 #### Careful arrangement of text blocks
 
 - Empty lines (spacing between paragraphs) have a height of 1em instead of 1.5em.
+
+  <details>
+    <summary>🍿 Paragraphs and spacing</summary>
+    <img alt="Dracula Gemini: paragraphs (GIF)" src="images/paragraphs.gif" />
+  </details>
+  
 - Header prefixes (`###`) are moved to the text margin.
+
+  <details>
+    <summary>🍿 Headers and their formatting</summary>
+    <img alt="Dracula Gemini: headers (GIF)" src="images/headers.gif" />
+  </details>
+
 - Lists, code blocks, quotes, and other elements are adjusted horizontally and vertically to align with the Reading view.
+
+  <details>
+    <summary>🍿 Code blocks and inline code</summary>
+    <img alt="Dracula Gemini: code blocks (GIF)" src="images/code-blocks.gif" />
+  </details>
+
+  <details>
+    <summary>🍿 Unordered lists</summary>
+    <img alt="Dracula Gemini: unordered lists (GIF)" src="images/unordered-lists.gif" />
+  </details>
+
+  <details>
+    <summary>🍿 Ordered lists</summary>
+    <img alt="Dracula Gemini: ordered lists (GIF)" src="images/ordered-lists.gif" />
+  </details>
+
+  <details>
+    <summary>🍿 Blockquotes</summary>
+    <img alt="Dracula Gemini: blockquotes (GIF)" src="images/blockquotes.gif" />
+  </details>
 
 #### Discreet formatting syntax
 
-The theme makes the Markdown syntax parts (e.g., `###` and `>`) less prominent. Header prefixes and bold/ italic wrappers are dimmed, code backticks and metadata delimiters are made smaller, et cetera. However, all the characters are still visible and editable.
+The theme makes the Markdown syntax parts (e.g., `###` and `>`) less prominent. Header prefixes and bold/italic wrappers are dimmed, code backticks and metadata delimiters are made smaller, et cetera. However, all the characters are still visible and editable.
 
 #### Attention to small(er) things
 
