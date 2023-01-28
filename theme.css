@@ -202,12 +202,12 @@ body {
   --h5-weight: 600;
   --h6-weight: 600;
 
-  --h1-line-height: 1.3;
-  --h2-line-height: 1.3;
-  --h3-line-height: 1.3;
-  --h4-line-height: 1.3;
-  --h5-line-height: 1.3;
-  --h6-line-height: 1.3;
+  --h1-line-height: 1.3125; /* 41.6px → 42px */
+  --h2-line-height: 1.2847; /* 37.44px → 37px */
+  --h3-line-height: 1.2891; /* 33.28px → 33px */
+  --h4-line-height: 1.2946; /* 29.12px → 29px */
+  --h5-line-height: 1.3021; /* 24.96px → 25px */
+  --h6-line-height: 1.3125; /* 20.8px → 21px */
 }
 
 .markdown-source-view .HyperMD-header,
