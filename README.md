@@ -14,6 +14,8 @@ I realize that Live Preview is a great way for many Obsidian users to edit their
 
 So I wanted all formatting characters clearly visible in the Editing view, for maximum control over the text. At the same time, I wanted it to look as close as possible to the Reading view; meaning that when I press Cmd+E, all the pieces would (mostly) stay in exactly the same place.
 
+![Dracula Gemini: screenshot](images/screenshot.png)
+
 ### Goals and features
 
 The theme is focused on fine-tuning the editing experience. It is mostly targeted to those old-school folks who prefer using Source mode over Live Preview. Also, some liking for Dracula color palette wouldn't hurt.
