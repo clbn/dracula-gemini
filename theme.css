@@ -40,6 +40,8 @@ body.theme-dark {
   --color-base-60: hsl(231, 15%, 65%);
   --color-base-70: hsl(231, 15%, 84%);
   --color-base-100: var(--color-dracula-foreground); /* a.k.a. hsl(60, 30%, 96%) */
+
+  --text-selection: var(--color-dracula-selection);
 }
 
 body.theme-dark.is-mobile {
