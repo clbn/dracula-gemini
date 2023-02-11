@@ -414,6 +414,13 @@ body {
   margin-left: -0.75em; /* distance between bullet and text; default is -1em */
 }
 
+/* Missing checked/done style for OL tasks (copied from the existing UL style in app.css) */
+ol > li.task-list-item[data-task="x"],
+ol > li.task-list-item[data-task="X"] {
+  text-decoration: var(--checklist-done-decoration);
+  color: var(--checklist-done-color);
+}
+
 /*
  ********************************************************************************************************************
  * Paragraphs & empty lines
