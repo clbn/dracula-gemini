@@ -56,6 +56,11 @@ It aims to make the Editing view look awesome, implementing:
   </details>
 
   <details>
+    <summary>🍿 Task lists</summary>
+    <img alt="Dracula Gemini: task lists (GIF)" src="images/task-lists.gif" />
+  </details>
+
+  <details>
     <summary>🍿 Blockquotes</summary>
     <img alt="Dracula Gemini: blockquotes (GIF)" src="images/blockquotes.gif" />
   </details>
