@@ -293,6 +293,7 @@ body {
   --list-ul-bullet-width: 0.75em; /* width of `- ` is 11.42px by default, we round it to 12px */
   --list-ol-margin: 0.125em; /* left margin of ol list, before `1. ` */
   --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
+  --list-task-checkbox-width: 2.0625em; /* width of `[ ] ` is 33px */
 }
 
 /* Source OL+UL list items (vertical) */
@@ -301,15 +302,46 @@ body {
   padding-bottom: 0 !important;
 }
 
-/* Source UL indentation (top-level only) */
+/* Source UL indentation (non-task, top-level only) */
 .markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ul) {
   text-indent: calc(-1 * var(--list-ul-bullet-width)) !important;
   padding-inline-start: calc(var(--list-ul-margin) + var(--list-ul-bullet-width)) !important;
 }
-/* Source OL indentation (top-level only) */
+/* Source UL indentation (tasks, top level) */
+.markdown-source-view .HyperMD-list-line-1.HyperMD-task-line:has(> .cm-formatting-list-ul) {
+  text-indent: calc(-1 * var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
+}
+/* Source UL indentation (tasks, 2nd level) */
+.markdown-source-view .HyperMD-list-line-2.HyperMD-task-line:has(> .cm-formatting-list-ul) {
+  text-indent: calc(-1 * var(--list-indent) - var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(var(--list-indent) + var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
+}
+/* Source UL indentation (tasks, 3rd level) */
+.markdown-source-view .HyperMD-list-line-3.HyperMD-task-line:has(> .cm-formatting-list-ul) {
+  text-indent: calc(-2 * var(--list-indent) - var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(2 * var(--list-indent) + var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
+}
+
+/* Source OL indentation (non-task, top-level only) */
 .markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ol) {
   text-indent: calc(-1 * var(--list-ol-bullet-width)) !important;
   padding-inline-start: calc(var(--list-ol-margin) + var(--list-ol-bullet-width)) !important;
+}
+/* Source OL indentation (tasks, top level) */
+.markdown-source-view .HyperMD-list-line-1.HyperMD-task-line:has(> .cm-formatting-list-ol) {
+  text-indent: calc(-1 * var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
+}
+/* Source OL indentation (tasks, 2nd level) */
+.markdown-source-view .HyperMD-list-line-2.HyperMD-task-line:has(> .cm-formatting-list-ol) {
+  text-indent: calc(-1 * var(--list-indent) - var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(var(--list-indent) + var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
+}
+/* Source OL indentation (tasks, 3rd level) */
+.markdown-source-view .HyperMD-list-line-3.HyperMD-task-line:has(> .cm-formatting-list-ol) {
+  text-indent: calc(-2 * var(--list-indent) - var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
+  padding-inline-start: calc(2 * var(--list-indent) + var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
 }
 
 /* Source UL bullet width (any-level) */
@@ -349,6 +381,30 @@ body {
 .markdown-preview-view :not(li) > ol {
   margin-left: calc(var(--list-ol-margin) + var(--list-ol-bullet-width));
   padding: 0;
+}
+
+/* Preview UL tasks */
+.markdown-preview-view :not(li) > ul.contains-task-list {
+  padding-left: calc(var(--checkbox-size) * 2.065);
+}
+.markdown-preview-view li > ul.contains-task-list {
+  padding-left: calc(var(--checkbox-size) * 0.152);
+}
+.markdown-preview-view ul.contains-task-list .task-list-item-checkbox {
+  margin-left: calc(var(--checkbox-size) * -1.65);
+  margin-right: calc(var(--checkbox-size) * 0.65);
+}
+
+/* Preview OL tasks */
+.markdown-preview-view ol li.task-list-item {
+  padding-left: calc(var(--checkbox-size) * 2.065);
+}
+.markdown-preview-view li > ol.contains-task-list {
+  margin-left: calc(var(--checkbox-size) * -2.065);
+}
+.markdown-preview-view ol.contains-task-list .task-list-item-checkbox {
+  margin-left: calc(var(--checkbox-size) * -1.65);
+  margin-right: calc(var(--checkbox-size) * 0.65);
 }
 
 /* Preview UL bullet: move down and right */
