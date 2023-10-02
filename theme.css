@@ -42,6 +42,9 @@ body.theme-dark {
   --color-base-100: var(--color-dracula-foreground); /* a.k.a. hsl(60, 30%, 96%) */
 
   --text-selection: var(--color-dracula-selection);
+
+  --checklist-done-decoration: none; /* line-through */
+  --checklist-done-color: var(--text-faint); /* --text-muted */
 }
 
 body.theme-dark.is-mobile {
