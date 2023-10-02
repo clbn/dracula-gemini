@@ -213,6 +213,8 @@ body {
   --h4-line-height: 1.2946; /* 29.12px → 29px */
   --h5-line-height: 1.3021; /* 24.96px → 25px */
   --h6-line-height: 1.3125; /* 20.8px → 21px */
+
+  --heading-spacing: 0;
 }
 
 .markdown-source-view .HyperMD-header,
