@@ -290,141 +290,43 @@ body {
 
 body {
   /* Obsidian vars */
-  --list-spacing: 0; /* takes care of vertical padding on list items */
-  --list-indent: 1.172em; /* with the code below, this var only affects OL */
+  --list-spacing: 0; /* reset vertical padding on list items */
+  --list-indent: 1.046875em; /* 16.75px, the width of 4 spaces; only affects Preview, doesn't affect Source */
 
   /* Custom vars */
   --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
-  --list-ul-margin: 0.272em; /* left margin of ul list, before `- ` */
-  --list-ul-bullet-width: 0.75em; /* width of `- ` is 11.42px by default, we round it to 12px */
-  --list-ol-margin: 0.125em; /* left margin of ol list, before `1. ` */
-  --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
-  --list-task-checkbox-width: 2.0625em; /* width of `[ ] ` is 33px */
+  --list-ul-bullet-spacing: 0.0805em; /* width of `- ` is 11.42px by default, we make it 14px */
 }
 
-/* Source OL+UL list items (vertical) */
+/* Source UL+OL list items */
 .markdown-source-view .HyperMD-list-line + .HyperMD-list-line {
   padding-top: var(--list-item-gap) !important;
   padding-bottom: 0 !important;
 }
 
-/* Source UL indentation (non-task, top-level only) */
-.markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ul) {
-  text-indent: calc(-1 * var(--list-ul-bullet-width)) !important;
-  padding-inline-start: calc(var(--list-ul-margin) + var(--list-ul-bullet-width)) !important;
-}
-/* Source UL indentation (tasks, top level) */
-.markdown-source-view .HyperMD-list-line-1.HyperMD-task-line:has(> .cm-formatting-list-ul) {
-  text-indent: calc(-1 * var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-/* Source UL indentation (tasks, 2nd level) */
-.markdown-source-view .HyperMD-list-line-2.HyperMD-task-line:has(> .cm-formatting-list-ul) {
-  text-indent: calc(-1 * var(--list-indent) - var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(var(--list-indent) + var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-/* Source UL indentation (tasks, 3rd level) */
-.markdown-source-view .HyperMD-list-line-3.HyperMD-task-line:has(> .cm-formatting-list-ul) {
-  text-indent: calc(-2 * var(--list-indent) - var(--list-ul-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(2 * var(--list-indent) + var(--list-ul-margin) + var(--list-ul-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-
-/* Source OL indentation (non-task, top-level only) */
-.markdown-source-view .HyperMD-list-line-1:has(> .cm-formatting-list-ol) {
-  text-indent: calc(-1 * var(--list-ol-bullet-width)) !important;
-  padding-inline-start: calc(var(--list-ol-margin) + var(--list-ol-bullet-width)) !important;
-}
-/* Source OL indentation (tasks, top level) */
-.markdown-source-view .HyperMD-list-line-1.HyperMD-task-line:has(> .cm-formatting-list-ol) {
-  text-indent: calc(-1 * var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-/* Source OL indentation (tasks, 2nd level) */
-.markdown-source-view .HyperMD-list-line-2.HyperMD-task-line:has(> .cm-formatting-list-ol) {
-  text-indent: calc(-1 * var(--list-indent) - var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(var(--list-indent) + var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-/* Source OL indentation (tasks, 3rd level) */
-.markdown-source-view .HyperMD-list-line-3.HyperMD-task-line:has(> .cm-formatting-list-ol) {
-  text-indent: calc(-2 * var(--list-indent) - var(--list-ol-bullet-width) - var(--list-task-checkbox-width)) !important;
-  padding-inline-start: calc(2 * var(--list-indent) + var(--list-ol-margin) + var(--list-ol-bullet-width) + var(--list-task-checkbox-width)) !important;
-}
-
-/* Source UL bullet width (any-level) */
+/* Source UL bullet */
 .markdown-source-view .HyperMD-list-line .cm-formatting-list-ul {
-  display: inline-block;
-  min-width: var(--list-ul-bullet-width);
-  text-align: right;
-}
-/* Source OL bullet width (any-level) */
-.markdown-source-view .HyperMD-list-line .cm-formatting-list-ol {
-  display: inline-block;
-  min-width: var(--list-ol-bullet-width);
-  text-align: right;
+  letter-spacing: var(--list-ul-bullet-spacing);
 }
 
-/* Preview UL+OL list items (vertical)
+/* Preview UL+OL list items
  * - top-level ones get gaps, except for the first one
  * - nested ones get gaps, including the first one */
 .markdown-preview-view li + li,
 .markdown-preview-view li li {
-  margin: var(--list-item-gap) 0 0 0;
+  margin-top: var(--list-item-gap);
 }
 
-/* Preview UL+OL lists (vertical, top-level only) */
-.markdown-preview-view :not(li) > ul,
-.markdown-preview-view :not(li) > ol {
-  margin-top: 0;
-  margin-bottom: var(--empty-line-height); /* like paragraphs */
+/* Preview UL top-level lists */
+.markdown-preview-view :not(li) > ul {
+  --list-ul-bullet-width: 0.875em; /* 14px, the width of `- `, hopefully; see declaration of --list-ul-bullet-spacing above */
+  margin-left: calc(var(--list-ul-bullet-width) - var(--list-indent));
 }
 
-/* Preview UL indentation (any-level) */
-.markdown-preview-view ul {
-  margin-left: calc(var(--list-ul-margin) + var(--list-ul-bullet-width));
-  padding: 0;
-}
-/* Preview OL indentation (top-level only) */
-.markdown-preview-view :not(li) > ol {
-  margin-left: calc(var(--list-ol-margin) + var(--list-ol-bullet-width));
-  padding: 0;
-}
-
-/* Preview UL tasks */
-.markdown-preview-view :not(li) > ul.contains-task-list {
-  padding-left: calc(var(--checkbox-size) * 2.065);
-}
-.markdown-preview-view li > ul.contains-task-list {
-  padding-left: calc(var(--checkbox-size) * 0.152);
-}
-.markdown-preview-view ul.contains-task-list .task-list-item-checkbox {
-  margin-left: calc(var(--checkbox-size) * -1.65);
-  margin-right: calc(var(--checkbox-size) * 0.65);
-}
-
-/* Preview OL tasks */
-.markdown-preview-view ol li.task-list-item {
-  padding-left: calc(var(--checkbox-size) * 2.065);
-}
-.markdown-preview-view li > ol.contains-task-list {
-  margin-left: calc(var(--checkbox-size) * -2.065);
-}
-.markdown-preview-view ol.contains-task-list .task-list-item-checkbox {
-  margin-left: calc(var(--checkbox-size) * -1.65);
-  margin-right: calc(var(--checkbox-size) * 0.65);
-}
-
-/* Preview UL bullet: move down and right */
+/* Preview UL bullet */
 .markdown-preview-view .list-bullet {
   justify-content: initial;
-  padding-top: 0.0625em; /* 1px */
-  margin-left: -0.75em; /* distance between bullet and text; default is -1em */
-}
-
-/* Missing checked/done style for OL tasks (copied from the existing UL style in app.css) */
-ol > li.task-list-item[data-task="x"],
-ol > li.task-list-item[data-task="X"] {
-  text-decoration: var(--checklist-done-decoration);
-  color: var(--checklist-done-color);
+  padding-top: 0.09375em; /* move 1.5px down */
 }
 
 /*
