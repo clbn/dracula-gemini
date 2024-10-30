@@ -296,6 +296,7 @@ body {
   /* Custom vars */
   --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
   --list-ul-bullet-spacing: 0.0805em; /* width of `- ` is 11.42px by default, we make it 14px */
+  --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
 }
 
 /* Source UL+OL list items */
@@ -307,6 +308,13 @@ body {
 /* Source UL bullet */
 .markdown-source-view .HyperMD-list-line .cm-formatting-list-ul {
   letter-spacing: var(--list-ul-bullet-spacing);
+}
+
+/* Source OL bullet */
+.markdown-source-view .HyperMD-list-line .cm-formatting-list-ol {
+  display: inline-block;
+  min-width: var(--list-ol-bullet-width);
+  text-align: right;
 }
 
 /* Preview UL+OL list items
@@ -321,6 +329,11 @@ body {
 .markdown-preview-view :not(li) > ul {
   --list-ul-bullet-width: 0.875em; /* 14px, the width of `- `, hopefully; see declaration of --list-ul-bullet-spacing above */
   margin-left: calc(var(--list-ul-bullet-width) - var(--list-indent));
+}
+
+/* Preview OL top-level lists */
+.markdown-preview-view :not(li) > ol {
+  margin-left: calc(var(--list-ol-bullet-width) - var(--list-indent));
 }
 
 /* Preview UL bullet */
