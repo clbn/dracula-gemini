@@ -297,6 +297,8 @@ body {
   --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
   --list-ul-bullet-spacing: 0.0805em; /* width of `- ` is 11.42px by default, we make it 14px */
   --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
+  --list-checkbox-margin-left: calc(var(--checkbox-size) * 0.385); /* match checkbox width to `[x]`; only affects Preview, doesn't affect Source */
+  --list-checkbox-margin-right: calc(var(--checkbox-size) * 0.685); /* match checkbox width to `[x]`; only affects Preview, doesn't affect Source */
 }
 
 /* Source UL+OL list items */
@@ -317,6 +319,19 @@ body {
   text-align: right;
 }
 
+/* Source UL+OL task checkbox */
+.markdown-source-view .HyperMD-list-line.HyperMD-task-line .cm-formatting-task {
+  color: var(--text-faint);
+}
+
+/* Source UL+OL task text
+ * - completed tasks have checkbox with .cm-property
+ * - incomplete tasks have checkbox with .cm-meta */
+.markdown-source-view .HyperMD-list-line.HyperMD-task-line:has(> .cm-property) {
+  text-decoration: var(--checklist-done-decoration);
+  color: var(--checklist-done-color);
+}
+
 /* Preview UL+OL list items
  * - top-level ones get gaps, except for the first one
  * - nested ones get gaps, including the first one */
@@ -331,6 +346,13 @@ body {
   margin-left: calc(var(--list-ul-bullet-width) - var(--list-indent));
 }
 
+/* Preview UL-task top-level lists */
+.markdown-preview-view :not(li) > ul.contains-task-list {
+  --list-ul-bullet-width: 0.875em; /* 14px, the width of `- `, hopefully; see declaration of --list-ul-bullet-spacing above */
+  --list-checkbox-width: var(--list-checkbox-margin-left) + var(--checkbox-size) + var(--list-checkbox-margin-right);
+  margin-left: calc(var(--list-ul-bullet-width) + var(--list-checkbox-width) - var(--list-indent));
+}
+
 /* Preview OL top-level lists */
 .markdown-preview-view :not(li) > ol {
   margin-left: calc(var(--list-ol-bullet-width) - var(--list-indent));
@@ -340,6 +362,25 @@ body {
 .markdown-preview-view .list-bullet {
   justify-content: initial;
   padding-top: 0.09375em; /* move 1.5px down */
+}
+
+/* Preview UL task checkbox */
+.markdown-preview-view ul.contains-task-list .task-list-item-checkbox {
+  margin-inline-start: calc(-1 * (var(--checkbox-size) + var(--list-checkbox-margin-right)));
+  margin-right: var(--list-checkbox-margin-right);
+}
+
+/* Preview OL task checkbox */
+.markdown-preview-view ol.contains-task-list .task-list-item-checkbox {
+  margin-left: var(--list-checkbox-margin-left);
+  margin-right: var(--list-checkbox-margin-right);
+}
+
+/* Missing checked/done style for OL tasks (copied from the existing UL style in app.css) */
+ol > li.task-list-item[data-task="x"],
+ol > li.task-list-item[data-task="X"] {
+  text-decoration: var(--checklist-done-decoration);
+  color: var(--checklist-done-color);
 }
 
 /*
