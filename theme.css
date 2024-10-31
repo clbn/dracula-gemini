@@ -289,22 +289,28 @@ body {
 */
 
 body {
-  /* Obsidian vars */
-  --list-spacing: 0; /* reset vertical padding on list items */
-  --list-indent: 1.046875em; /* 16.75px, the width of 4 spaces; only affects Preview, doesn't affect Source */
-
   /* Custom vars */
   --list-item-gap: 0.375em; /* bottom margin for a list item, to keep the items separated */
+  --list-indent-spacing: 0.125em; /* +2px for every space in `    ` */
   --list-ul-bullet-spacing: 0.0805em; /* width of `- ` is 11.42px by default, we make it 14px */
   --list-ol-bullet-width: 1.75em; /* width of `99. ` is 28.16px; we set it to 28px, even for `1. ` */
   --list-checkbox-margin-left: calc(var(--checkbox-size) * 0.385); /* match checkbox width to `[x]`; only affects Preview, doesn't affect Source */
   --list-checkbox-margin-right: calc(var(--checkbox-size) * 0.685); /* match checkbox width to `[x]`; only affects Preview, doesn't affect Source */
+
+  /* Obsidian vars */
+  --list-spacing: 0; /* reset vertical padding on list items */
+  --list-indent: calc(1.046875em + 4 * var(--list-indent-spacing)); /* 16.75px + 8px, the width of 4 spaces */
 }
 
 /* Source UL+OL list items */
 .markdown-source-view .HyperMD-list-line + .HyperMD-list-line {
   padding-top: var(--list-item-gap) !important;
   padding-bottom: 0 !important;
+}
+
+/* Source UL+OL list items */
+.markdown-source-view .HyperMD-list-line .cm-hmd-list-indent {
+  letter-spacing: var(--list-indent-spacing);
 }
 
 /* Source UL bullet */
