@@ -417,6 +417,10 @@ body {
   --table-header-background: var(--color-base-20);
 }
 
+.markdown-preview-view table {
+  margin-block-start: 0;
+}
+
 /*
  ********************************************************************************************************************
  * Thematic breaks (horizontal rules, <hr>)
